@@ -33,7 +33,7 @@ exports.handler = async (event) => {
       return { statusCode: 200, headers, body: JSON.stringify({ valid: false, reason: 'Invalid key format' }) };
     }
 
-    const snapshot = await db.collection('soft_licenses')
+    const snapshot = await db.collection('soft licenses')
       .where('licenseKey', '==', licenseKey.trim().toUpperCase())
       .where('active', '==', true)
       .limit(1)
