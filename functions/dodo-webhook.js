@@ -49,7 +49,7 @@ exports.handler = async (event) => {
       return { statusCode: 200, headers, body: JSON.stringify({ received: true, warning: 'no email' }) };
     }
 
-    const existing = await db.collection('soft_licenses').where('orderId', '==', orderId).limit(1).get();
+    const existing = await db.collection('soft licenses').where('orderId', '==', orderId).limit(1).get();
     if (!existing.empty) {
       return { statusCode: 200, headers, body: JSON.stringify({ received: true, note: 'already issued' }) };
     }
